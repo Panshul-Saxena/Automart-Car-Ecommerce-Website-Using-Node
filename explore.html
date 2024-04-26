@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Automart</title>
+    <link rel="icon" href="./images/hero-car.png">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<header class="header explore-header">
+    <a href="./index.html" class="logo">Automart.</a>
+
+    <nav class="navbar">
+        <div class="search-container">
+            <input type="search" ng-model="search" placeholder="Search your car">
+        </div>
+
+        <a href="./index.html" style="--i:1" class="active">Home</a>
+        <a href="#contact" style="--i:2">Contact</a>
+    </nav>
+</header>
+
+<section id="explore" class="explore">
+    <div class="h1-container">
+        <h1>Explore Cars</h1>
+    </div>
+
+
+    <div class="explore-container" ng-controller="myCtrl">
+        <div class="filters" >
+            <h2>Select the filter</h2>
+            <button ng-click="filterFn('nPrice')">Price - Low to High</button>
+            <br>
+            <button ng-click="filterFn('-nPrice')">Price - High to Low</button>
+            <br>
+            <button ng-click="filterFn('brand')">Brand</button>
+            <br>
+            <button ng-click="filterFn('fuel')">Fuel Type</button>
+            <br>
+            <button ng-click="filterFn('power')">Power - Low to High</button>
+            <br>
+            <button ng-click="filterFn('-power')">Power - High to Low</button>
+            <br>
+            <button ng-click="filterFn('torque')">Torque - Low to High</button>
+            <br>
+            <button ng-click="filterFn('-torque')">Torque - High to Low</button>
+            <br>
+
+        </div>
+        <div class="results">
+            <ul class="result-card-container">
+                <li id="repeat-filter" class="car-card" ng-repeat="carObj in carArray | filter:search |  orderBy: orderByExpression">
+                    <div class="image-box">
+                        <img src="images/{{carObj.brand}}/{{carObj.name}}/img-1.jpeg" alt=""/>
+                    </div>
+                    <div class="car-details">
+                        <h3 class="car-name">{{carObj.brand}} {{carObj.name}}</h3>
+                        <h4 class="car-price">₹ {{carObj.price}}</h4>
+                        <div class="car-btn-container">
+                            <button id="redirectButton" ng-click="redirectWithCarId(carObj.id)">Check On-Road Price</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+
+
+<footer id="contact" class="footer-container">
+    <div class="footer-col">
+        <h4>Automart</h4>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#featured-cars">Featured Cars</a></li>
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+        </ul>
+    </div>
+    <div class="footer-col">
+        <h4>Get Help</h4>
+        <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Advertise</a></li>
+        </ul>
+    </div>
+    <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+            <li><a href="#">+91 91111 91111</a></li>
+            <li><a href="#">automart@gmail.com</a></li>
+        </ul>
+    </div>
+    <div class="footer-col">
+        <h4>Address</h4>
+        <ul>
+            <li><a href="#">Automart Office,</a></li>
+            <li><a href="#">Lawrence Rd,</a></li>
+            <li><a href="#">Mumbai, Maharashtra</a></li>
+            <li><a href="#">India, 400001</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script src="js/swiper-bundle.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automart</title>
+    <link rel="stylesheet" href="css/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="./images/hero-car.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+
+<header class="header">
+    <a href="index.html" class="logo">Automart.</a>
+
+    <nav class="navbar">
+        <a href="#home" style="--i:1" class="active">Home</a>
+        <a href="#featured-cars" style="--i:2">Featured Cars</a>
+        <a href="#about-us" style="--i:3">About</a>
+        <a href="#reviews" style="--i:4">Reviews</a>
+        <a href="#contact" style="--i:5">Contact</a>
+    </nav>
+</header>
+
+<section id="home">
+    <div class="home-content">
+        <h1>Car Dealing Experience.</h1>
+        <h3>Reimagined!</h3>
+        <p>Welcome to the stress-free car buying journey! Browse new & used wheels, compare features, and even buy your
+            dream car – all from the comfort of your couch. We offer financing help and secure checkout, making it a
+            smooth ride from browsing to owning.</p>
+        <a href="./explore.html" class="btn">Explore Cars</a>
+    </div>
+
+    <img src="./images/hero-car.png" class="home-img" alt="">
+</section>
+
+
+<section class="featured-cars-container" id="featured-cars" ng-controller="myCtrl">
+    <div class="car-container swiper">
+        <h1>Featured Cars</h1>
+        <div class="slide-container">
+            <ul class="card-wrapper swiper-wrapper">
+                <li class="car-card swiper-slide" ng-repeat="carObj in carArray">
+                    <div class="image-box">
+                        <img src="images/{{carObj.brand}}/{{carObj.name}}/img-1.jpeg" alt=""/>
+                    </div>
+                    <div class="car-details">
+                        <h3 class="car-name">{{carObj.brand}} {{carObj.name}}</h3>
+                        <h4 class="car-price">₹ {{carObj.price}}</h4>
+                        <div class="car-btn-container">
+                            <button ng-click="redirectWithCarId(carObj.id)">Check On-Road Price</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="swiper-button-next swiper-navBtn"></div>
+        <div class="swiper-button-prev swiper-navBtn"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+
+<section id="about-us" class="about-us-container">
+    <img src="./images/About-Us.jpg" alt="porsche.png">
+    <div class="about-us-content">
+        <h1>About Us</h1>
+        <p>At Automart, we believe car buying should be a smooth and exciting experience, not a stressful hassle. That's
+            why we've built a user-friendly platform that empowers you to browse, compare, and even buy your dream car
+            entirely online. Whether you're a seasoned car enthusiast or a first-time buyer, we offer a vast selection
+            of new and pre-owned vehicles from trusted brands.<br><br>Our commitment goes beyond just offering a wide
+            variety. We provide transparent pricing, detailed car information, and secure online financing options to
+            simplify the buying process. So ditch the dealership pressure and hidden fees. Take control of your car
+            buying journey with Automart – your one-stop shop for finding the perfect car at the perfect price. </p>
+    </div>
+</section>
+
+
+<section id="reviews" class="review-container">
+    <div class="container__left">
+        <h1>Read what our customers love about us</h1>
+        <p>At Automart, your feedback is valuable.  We encourage you to leave a review about your car buying experience on our website.  Sharing your thoughts helps potential customers understand the ease and convenience of buying a car through Automart.
+            <br><br> Whether you found the perfect car at a great price or received exceptional customer service from our team, let others know!  Positive reviews build trust and transparency,  helping others feel confident about choosing Automart for their car buying journey.</p>
+    </div>
+    <div class="container__right">
+        <div class="card">
+            <img src="images/review-pic-1.jpg" alt="user"/>
+            <div class="card__content">
+                <div class="card__details">
+                    <p>"Finding my dream Hyundai Creta online at Automart was easy! Secured financing at a great rate on the platform itself. Delivery was smooth, car's perfect - highly recommend!"</p>
+                    <h4>- Marnus Stephen</h4>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/review-pic-2.jpg" alt="user"/>
+            <div class="card__content">
+                <div class="card__details">
+                    <p>"First-time buyer, nervous about online purchase. Automart's amazing customer service calmed my nerves. Read user reviews, found a budget-friendly Honda Civic."</p>
+                    <h4>- Andrew Jettpace</h4>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/review-pic-3.jpeg" alt="user"/>
+            <div class="card__content">
+                <div class="card__details">
+                    <p>"Traded-in my old car for a new Mercedes with ease. Accurate online valuation tool, transparent process. Secure online payment a plus! Ditch the dealership, choose Automart!"</p>
+                    <h4>- Stacy Stone</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--</section>-->
+
+<footer id="contact" class="footer-container">
+            <div class="footer-col">
+                <h4>Automart</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#featured-cars">Featured Cars</a></li>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get Help</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Advertise</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="#">+91 91111 91111</a></li>
+                    <li><a href="#">automart@gmail.com</a></li>
+                </ul>
+            </div>
+    <div class="footer-col">
+        <h4>Address</h4>
+        <ul>
+            <li><a href="#">Automart Office,</a></li>
+            <li><a href="#">Lawrence Rd,</a></li>
+            <li><a href="#">Mumbai, Maharashtra</a></li>
+            <li><a href="#">India, 400001</a></li>
+        </ul>
+    </div>
+</footer>
+<script src="js/swiper-bundle.min.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head  ng-controller="myCtrl">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>{{carArray[currentCarId].brand}} {{carArray[currentCarId].name}}</title>
+    <link rel="icon" href="./images/hero-car.png">
+    <script>
+        window.onload = myFunction;
+    </script>
+</head>
+<body >
+<header class="header explore-header">
+    <a href="./index.html" class="logo">Automart.</a>
+
+    <nav class="navbar">
+        <a href="./index.html" style="--i:1" class="active">Home</a>
+        <a href="./explore.html" style="--i:2">Explore Cars</a>
+        <a href="#contact" style="--i:3">Contact</a>
+    </nav>
+</header>
+
+<section id="car-showcase">
+    <div class="car-showcase" ng-controller="myCtrl">
+        <div class="images-container">
+            <img ng-src="{{displayedImage}}" class="display-img" alt="">
+
+            <div class="all-images">
+                <img ng-src="images/{{carArray[currentCarId].brand}}/{{carArray[currentCarId].name}}/img-1.jpeg" ng-click="changeDisplayImage('img-1.jpeg')" alt=""/>
+                <img ng-src="images/{{carArray[currentCarId].brand}}/{{carArray[currentCarId].name}}/img-2.jpeg" ng-click="changeDisplayImage('img-2.jpeg')" alt=""/>
+                <img ng-src="images/{{carArray[currentCarId].brand}}/{{carArray[currentCarId].name}}/img-3.jpeg" ng-click="changeDisplayImage('img-3.jpeg')" alt=""/>
+                <img ng-src="images/{{carArray[currentCarId].brand}}/{{carArray[currentCarId].name}}/img-4.jpeg" ng-click="changeDisplayImage('img-4.jpeg')" alt=""/>
+                <img ng-src="images/{{carArray[currentCarId].brand}}/{{carArray[currentCarId].name}}/img-5.jpeg" ng-click="changeDisplayImage('img-5.jpeg')" alt=""/>
+            </div>
+        </div>
+        <div class="content-container">
+            <h3>{{carArray[currentCarId].brand}} </h3>
+            <h1>{{carArray[currentCarId].name}}</h1>
+<!--            <h3>Reimagined!</h3>-->
+            <p class="price"><span>₹ {{carArray[currentCarId].price}}</span> onwards in India</p>
+            <br><br>
+
+            <br>
+            <div class="specifications">
+                <h4>{{carArray[currentCarId].name}} Specifications:</h4>
+
+                <div class="each-spec">
+                    <p>Price:</p>
+                    <span>{{carArray[currentCarId].price}}</span>
+                </div>
+                <div class="each-spec">
+                    <p>Fuel Type:</p>
+                    <span>{{carArray[currentCarId].fuel}}</span>
+                </div>
+                <div class="each-spec">
+                    <p>Engine:</p>
+                    <span>{{carArray[currentCarId].engine}} cc</span>
+                </div>
+                <div class="each-spec">
+                    <p>Power:</p>
+                    <span>{{carArray[currentCarId].power}} bhp</span>
+                </div>
+                <div class="each-spec">
+                    <p>Torque:</p>
+                    <span>{{carArray[currentCarId].torque}} Nm</span>
+                </div>
+                <div class="each-spec">
+                    <p>Transmission:</p>
+                    <span>{{carArray[currentCarId].transmission}}</span>
+                </div>
+                <div class="each-spec">
+                    <p>Seating Capacity:</p>
+                    <span>{{carArray[currentCarId].seatingCapacity}}</span>
+                </div>
+                <div class="each-spec">
+                    <p>Drive Train:</p>
+                    <span>{{carArray[currentCarId].driveTrain}}</span>
+                </div>
+                <div class="each-spec">
+                    <p>Top Speed:</p>
+                    <span>{{carArray[currentCarId].topSpeed}} kmph</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<footer id="contact" class="footer-container">
+    <div class="footer-col">
+        <h4>Automart</h4>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#featured-cars">Featured Cars</a></li>
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+        </ul>
+    </div>
+    <div class="footer-col">
+        <h4>Get Help</h4>
+        <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Advertise</a></li>
+        </ul>
+    </div>
+    <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+            <li><a href="#">+91 91111 91111</a></li>
+            <li><a href="#">automart@gmail.com</a></li>
+        </ul>
+    </div>
+    <div class="footer-col">
+        <h4>Address</h4>
+        <ul>
+            <li><a href="#">Automart Office,</a></li>
+            <li><a href="#">Lawrence Rd,</a></li>
+            <li><a href="#">Mumbai, Maharashtra</a></li>
+            <li><a href="#">India, 400001</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
